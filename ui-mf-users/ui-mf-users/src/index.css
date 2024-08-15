@@ -1,0 +1,85 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+:root {
+  --rp-bg: rgba(127, 0, 255, 1) !important;
+  --rp-bg-transparent: rgba(127, 0, 255, 0.3) !important;
+  --hover-rp-bg: rgb(152 50 255) !important;
+  --rp-icon: #4e4c4c !important;
+  --rp-title: #8A8A8A !important;
+  --rp-height-help: calc(100vh - 160px) !important;
+  --rp-height-max: calc(100vh - 40px) !important;
+  --rp-border-round: 12px !important;
+  --rp-test: linear-gradient(273deg, rgb(233 233 233 / 15%) 0%, rgb(221 166 255 / 18%) 100%) !important;
+}
+
+@font-face {
+  font-family: "Publico Banner Ultra";
+  src: url(../assets/fonts/publico-banner/publico-banner-ultra.ttf);
+}
+
+@font-face {
+  font-family: "Circular Pro Black";
+  src: url(../assets/fonts/circular-pro/circular-pro-black.ttf);
+}
+
+@font-face {
+  font-family: "Circular Pro Bold";
+  src: url(../assets/fonts/circular-pro/circular-pro-bold.ttf);
+}
+
+@font-face {
+  font-family: "Circular Pro Medium";
+  src: url(../assets/fonts/circular-pro/circular-pro-medium.ttf);
+}
+
+@font-face {
+  font-family: "Circular Pro Book";
+  src: url(../assets/fonts/circular-pro/circular-pro-book.ttf);
+}
+
+#layout-base .logo .sub-title {
+  font-size: 12px;
+  font-weight: normal;
+  color: #e3e3e3;
+  margin-top: 5px;
+}
+
+#layout-base .logo {
+  height: auto !important;
+  padding: 13px 0px !important;
+  text-align: center;
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: first baseline;
+  margin: 7px !important;
+}
+
+#layout-base .logo img {
+  padding: 0px;
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  position: relative;
+}
+
+.i-arrow.i-arrow-left {
+  left: 100%;
+  border-left-color: var(--imt-panelbgcolor);
+  margin-top: -10px;
+}
+
+.i-arrow {
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(var(--imt-white-rgb), 0);
+  border-width: 10px;
+}

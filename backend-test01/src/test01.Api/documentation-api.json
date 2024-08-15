@@ -1,0 +1,713 @@
+﻿{
+  "Info": {
+    "Title": "Microservice Test",
+    "Description": "Description example",
+    "Version": "V1"
+  },
+  "Controllers": [
+    {
+      "Name": "Roles",
+      "Description": "",
+      "Routes": [
+        {
+          "Url": "/v1/roles",
+          "Operations": [
+            {
+              "Method": "Get",
+              "Summary": "",
+              "Description": "",
+              "Consumes": [],
+              "Parameters": [],
+              "Example": null,
+              "Security": true,
+              "Responses": [
+                {
+                  "Code": "200",
+                  "Description": "OK",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "400",
+                  "Description": "Bad Request",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "ValidationResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "404",
+                  "Description": "Not Found",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "409",
+                  "Description": "Conflict",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "500",
+                  "Description": "Internal Server Error",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "HttpStatusCodeInfo",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "401",
+                  "Description": "No Autorizado",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "403",
+                  "Description": "Recurso Prohibido",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                }
+              ],
+              "ContentBody": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Users",
+      "Description": "",
+      "Routes": [
+        {
+          "Url": "/v1/users",
+          "Operations": [
+            {
+              "Method": "Get",
+              "Summary": "",
+              "Description": "",
+              "Consumes": [],
+              "Parameters": [
+                {
+                  "In": "Query",
+                  "Name": "pageSize",
+                  "Description": "",
+                  "Type": "integer",
+                  "ItemArray": null,
+                  "Required": false
+                },
+                {
+                  "In": "Query",
+                  "Name": "pageCurrent",
+                  "Description": "",
+                  "Type": "integer",
+                  "ItemArray": null,
+                  "Required": false
+                },
+                {
+                  "In": "Query",
+                  "Name": "searchFilter",
+                  "Description": "",
+                  "Type": "string",
+                  "ItemArray": null,
+                  "Required": false
+                },
+                {
+                  "In": "Query",
+                  "Name": "requestId",
+                  "Description": "",
+                  "Type": "string",
+                  "ItemArray": null,
+                  "Required": false
+                },
+                {
+                  "In": "Query",
+                  "Name": "status",
+                  "Description": "",
+                  "Type": "boolean",
+                  "ItemArray": null,
+                  "Required": false
+                }
+              ],
+              "Example": null,
+              "Security": true,
+              "Responses": [
+                {
+                  "Code": "200",
+                  "Description": "OK",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "GetUsersResultSuccessQueryResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "400",
+                  "Description": "Bad Request",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "ValidationResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "404",
+                  "Description": "Not Found",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "409",
+                  "Description": "Conflict",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "500",
+                  "Description": "Internal Server Error",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "HttpStatusCodeInfo",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "401",
+                  "Description": "No Autorizado",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "403",
+                  "Description": "Recurso Prohibido",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                }
+              ],
+              "ContentBody": null
+            },
+            {
+              "Method": "Post",
+              "Summary": "",
+              "Description": "",
+              "Consumes": [
+                "application/json"
+              ],
+              "Parameters": [],
+              "Example": null,
+              "Security": true,
+              "Responses": [
+                {
+                  "Code": "200",
+                  "Description": "OK",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "UsersResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "400",
+                  "Description": "Bad Request",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "ValidationResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "404",
+                  "Description": "Not Found",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "409",
+                  "Description": "Conflict",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "500",
+                  "Description": "Internal Server Error",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "HttpStatusCodeInfo",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "401",
+                  "Description": "No Autorizado",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "403",
+                  "Description": "Recurso Prohibido",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                }
+              ],
+              "ContentBody": null
+            }
+          ]
+        },
+        {
+          "Url": "/v1/users/{id}",
+          "Operations": [
+            {
+              "Method": "Get",
+              "Summary": "",
+              "Description": "",
+              "Consumes": [],
+              "Parameters": [
+                {
+                  "In": "Path",
+                  "Name": "id",
+                  "Description": "",
+                  "Type": "integer",
+                  "ItemArray": null,
+                  "Required": true
+                }
+              ],
+              "Example": null,
+              "Security": true,
+              "Responses": [
+                {
+                  "Code": "200",
+                  "Description": "OK",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "GetUserByIdResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "400",
+                  "Description": "Bad Request",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "ValidationResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "404",
+                  "Description": "Not Found",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "409",
+                  "Description": "Conflict",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "500",
+                  "Description": "Internal Server Error",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "HttpStatusCodeInfo",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "401",
+                  "Description": "No Autorizado",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "403",
+                  "Description": "Recurso Prohibido",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                }
+              ],
+              "ContentBody": null
+            },
+            {
+              "Method": "Put",
+              "Summary": "",
+              "Description": "",
+              "Consumes": [
+                "application/json"
+              ],
+              "Parameters": [
+                {
+                  "In": "Path",
+                  "Name": "id",
+                  "Description": "",
+                  "Type": "integer",
+                  "ItemArray": null,
+                  "Required": true
+                }
+              ],
+              "Example": null,
+              "Security": true,
+              "Responses": [
+                {
+                  "Code": "200",
+                  "Description": "OK",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "UpdateUserResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "400",
+                  "Description": "Bad Request",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "ValidationResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "404",
+                  "Description": "Not Found",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "409",
+                  "Description": "Conflict",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "500",
+                  "Description": "Internal Server Error",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "HttpStatusCodeInfo",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "401",
+                  "Description": "No Autorizado",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "403",
+                  "Description": "Recurso Prohibido",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                }
+              ],
+              "ContentBody": null
+            },
+            {
+              "Method": "Delete",
+              "Summary": "",
+              "Description": "",
+              "Consumes": [],
+              "Parameters": [
+                {
+                  "In": "Path",
+                  "Name": "id",
+                  "Description": "",
+                  "Type": "integer",
+                  "ItemArray": null,
+                  "Required": true
+                }
+              ],
+              "Example": null,
+              "Security": true,
+              "Responses": [
+                {
+                  "Code": "200",
+                  "Description": "OK",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "DeleteUserResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "400",
+                  "Description": "Bad Request",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "ValidationResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "404",
+                  "Description": "Not Found",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "409",
+                  "Description": "Conflict",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "500",
+                  "Description": "Internal Server Error",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "HttpStatusCodeInfo",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "401",
+                  "Description": "No Autorizado",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "403",
+                  "Description": "Recurso Prohibido",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                }
+              ],
+              "ContentBody": null
+            }
+          ]
+        },
+        {
+          "Url": "/v1/users/status/{id}",
+          "Operations": [
+            {
+              "Method": "Put",
+              "Summary": "",
+              "Description": "",
+              "Consumes": [
+                "application/json"
+              ],
+              "Parameters": [
+                {
+                  "In": "Path",
+                  "Name": "id",
+                  "Description": "",
+                  "Type": "integer",
+                  "ItemArray": null,
+                  "Required": true
+                }
+              ],
+              "Example": null,
+              "Security": true,
+              "Responses": [
+                {
+                  "Code": "200",
+                  "Description": "OK",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "UpdateUserResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "400",
+                  "Description": "Bad Request",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "ValidationResult",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "404",
+                  "Description": "Not Found",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "409",
+                  "Description": "Conflict",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "500",
+                  "Description": "Internal Server Error",
+                  "ContentType": [
+                    "application/json"
+                  ],
+                  "Example": null,
+                  "ContentResponse": [
+                    {
+                      "Format": "application/json",
+                      "ReferenceId": "HttpStatusCodeInfo",
+                      "Type": "Schema"
+                    }
+                  ]
+                },
+                {
+                  "Code": "401",
+                  "Description": "No Autorizado",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                },
+                {
+                  "Code": "403",
+                  "Description": "Recurso Prohibido",
+                  "ContentType": [],
+                  "Example": null,
+                  "ContentResponse": []
+                }
+              ],
+              "ContentBody": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

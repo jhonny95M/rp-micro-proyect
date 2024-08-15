@@ -1,0 +1,95 @@
+﻿// <copyright file="Program.cs" company="Real Plaza">
+// Copyright (c) Real Plaza. All rights reserved.
+// </copyright>
+
+// Add following references to Integration.Portal.csproj
+/*
+    <PackageReference Include="Marten.CommandLine" Version="6.4.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Oakton" Version="6.1.0" />
+*/
+
+// Make the output type exe
+/*
+    <OutputType>Exe</OutputType>
+*/
+using JasperFx.CodeGeneration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Oakton;
+using Microsoft.Extensions.DependencyInjection;
+using Wolverine;
+using Polly;
+using Polly.Extensions.Http;
+using System.Net.Http;
+using System.Net;
+using System.Threading.Tasks;
+using System;
+using System.Diagnostics.Metrics;
+using test01.Application.Telemetry;
+using test01.Service.Utility;
+using RealPlaza.Core.Common.Service.Implementations;
+using RealPlaza.Core.Common.Service.Interfaces;
+using RealPlaza.Core.Core.Persistence;
+using RealPlaza.Core.Core.Configuration;
+
+
+namespace test01.Application;
+
+public static class Program
+{
+
+    public static Task<int> Main(string[] args)
+    {
+        return CreateHostBuilder(args).RunOaktonCommands(args);
+    }
+
+    private static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        return Host
+            .CreateDefaultBuilder(args)
+            .ConfigureHostConfiguration(config =>
+            {
+                config.AddEnvironmentVariables();
+            })
+            .ConfigureServices((hostContext, services) =>
+            {
+                var meter = new Meter("test01.Meter");
+                services.AddSingleton<IInstrumentation>(new Instrumentation(meter));
+                services.AddTransient<IServiceProvider>();
+                services.AddSingleton<IConfigurationHelper, ConfigurationHelper>();
+
+                services.ConfigureConnectionFactory(null);
+                services.ConfigureUnitOfWorkDependencies(null);
+                services.ConfigureInjections();
+
+                services.AddHttpClient<IHttpService, HttpService>("realplaza")
+                    .AddPolicyHandler(GetRetryPolicy(hostContext.Configuration));
+
+
+                services.AddSingleton<IHttpService>(serviceProvider =>
+                {
+                    var httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
+                    var httpService = new HttpService(httpClientFactory);
+                    return httpService;
+                });
+
+            })
+            .UseWolverine((context, options) =>
+            {
+                options.CodeGeneration.TypeLoadMode = TypeLoadMode.Auto;
+                options.RegisterSecurityTypesForWolverine();
+            });
+    }
+    private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy(IConfiguration configuration)
+    {
+        var retryCount = Convert.ToInt32(configuration["RETRY-COUNT"]);
+        var sleepDurationProvider = Convert.ToInt32(configuration["SLEEP-DURATION-PROVIDER"]);
+
+        return HttpPolicyExtensions
+            .HandleTransientHttpError()
+            .OrResult(msg => msg.StatusCode != HttpStatusCode.Accepted)
+            .WaitAndRetryAsync(retryCount, retryAttempt => TimeSpan.FromSeconds(sleepDurationProvider));
+    }
+}

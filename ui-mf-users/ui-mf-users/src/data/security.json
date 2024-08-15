@@ -1,0 +1,106 @@
+{
+    "data": [
+        {
+            "codeProfile": "21303",
+            "code": "JAPI001",
+            "id": "21303",
+            "nameProfile": "ADMINISTRADOR JAPI",
+            "statusProfile": "A",
+            "isMaintenant": false,
+            "tenantId": "0",
+            "teneantProfile": "",
+            "tenantCode": "",
+            "menu": [
+                {
+                    "menuId": "40811",
+                    "menuParentId": "",
+                    "menuNivel": "1",
+                    "label": "Usuario - JAPI",
+                    "icon": "",
+                    "route": "/japi/user",
+                    "flatModal": "0",
+                    "status": "A",
+                    "child": [
+                        {
+                            "menuId": "41811",
+                            "menuParentId": "40811",
+                            "menuNivel": "2",
+                            "label": "Hijo Usuario",
+                            "icon": "",
+                            "route": "/menu-hijo-02",
+                            "flatModal": "0",
+                            "status": "A",
+                            "child": [],
+                            "action": []
+                        }
+                    ],
+                    "action": [
+                        {
+                            "actionName": "edit-user",
+                            "menuId": "40811"
+                        },
+                        {
+                            "actionName": "delete-user",
+                            "menuId": "40811"
+                        },
+                        {
+                            "actionName": "create-user",
+                            "menuId": "40811"
+                        }
+                    ]
+                },
+                {
+                    "menuId": "40812",
+                    "menuParentId": "",
+                    "menuNivel": "1",
+                    "label": "Inmobiliario - JAPI",
+                    "icon": "",
+                    "route": "/japi/inmobiliario",
+                    "flatModal": "0",
+                    "status": "A",
+                    "child": [],
+                    "action": [
+                        {
+                            "actionName": "create-inmobiliario",
+                            "menuId": "40812"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "features":[
+        {
+            "key":"USR_AREA",
+            "value":[
+                "TI"
+            ]
+        },
+        {
+            "key":"USR_AREA_NEGOCIO",
+            "value":[
+                "TEC SERVICE DESC"
+            ]
+        },
+        {
+            "key":"USR_EDAD",
+            "value":[
+                "30"
+            ]
+        },
+        {
+            "key":"USR_CARGO",
+            "value":[
+                "DEVELOPER"
+            ]
+        },
+        {
+            "key":"USR_MALL",
+            "value":[
+                "JAPI"
+            ]
+        }
+    ],
+    "featuresTenant":[],
+    "tenants":[]
+}

@@ -1,0 +1,24 @@
+{
+    "default": {
+        "appLogo": "/static/img/app-icon.png",
+        "smallLogo": "/static/img/logo-realplaza.png",
+        "mainColor": "#7300e0",
+        "secondaryColor": "#6407bd"
+    },
+    "T001": {
+        "name": "real plaza",
+        "smallLogo": "/static/img/logo-realplaza.svg"
+    },
+    "T004": {
+        "name": "promart",
+        "smallLogo": "/static/img/logo-promart.svg",
+        "mainColor": "#ff8100",
+        "secondaryColor": "#df7100"
+    },
+    "T002": {
+        "name": "oechsle",
+        "smallLogo": "/static/img/logo-oechsle.svg",
+        "mainColor": "#e72539",
+        "secondaryColor": "#cf0015"
+    }
+}

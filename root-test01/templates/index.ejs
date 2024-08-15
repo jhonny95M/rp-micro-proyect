@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- <% if (isLocal) { %>
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    frame-ancestors 'self'; 
+    style-src 'self';
+    style-src-elem 'self' http://127.0.0.1/ http://127.0.0.1:3003/ http://127.0.0.1:3002/ http://127.0.0.1:3004/ http://127.0.0.1:3005/ 'nonce-test-test' 'nonce-content-home-csp' 'nonce-content-error-csp' 'nonce-header-modal-key-csp' 'nonce-header-key-csp' 'nonce-identity-key-csp' 'nonce-products-test' https://cdn.jsdelivr.net/ https://unpkg.com/ https://cdnjs.cloudflare.com/ 'sha256-0O3S3uMt1kDhSUJwQa1v9r3Oh6FbUY4KJgqQcrzdNOU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-F0mUq4w2MJrh40BDbwVebxGNaEdGX5aqTAWDHfT2f58=' 'sha256-XQEl0+y9C6bSvZdjhDm8sN21dR91ra/iastsw6Wqpwk=';
+    
+    script-src 'self' 'unsafe-eval';
+    script-src-elem 'self' http://127.0.0.1/ http://127.0.0.1:3003/ http://127.0.0.1:3002/ http://127.0.0.1:3004/ http://127.0.0.1:3005/ https://cdn.jsdelivr.net/ https://unpkg.com/ https://trusted.cdn.com;
+    
+    connect-src 'self' https://dummyjson.com/ ws://127.0.0.1:3003/ ws://127.0.0.1:3002/ ws://127.0.0.1:3004/ ws://127.0.0.1:3005/ http://127.0.0.1:3004/ https://idsrv.realplazalabs.com/ https://api.realplazalabs.com/ https://apimanager-rp.com/ https://apigw.uat.realplaza.io/ https://funceu2c001audituat01.azurewebsites.net/; 
+    img-src 'self' http://127.0.0.1/ http://127.0.0.1:3002/ http://127.0.0.1:3003/ http://127.0.0.1:3004/ http://127.0.0.1:3005/ data:; 
+    font-src 'self' http://127.0.0.1/ http://127.0.0.1:3002/ http://127.0.0.1:3003/ http://127.0.0.1:3004/ http://127.0.0.1:3005/ https://cdnjs.cloudflare.com/; 
+    child-src 'none';
+    object-src 'none'; 
+    base-uri 'self'; 
+    frame-src 'self'; 
+    media-src 'self'; 
+    form-action 'self'; 
+    manifest-src 'self'; 
+    worker-src 'none';">
+    <% } %> -->
+
+  <title>
+    <%= headerTitle %>
+  </title>
+  <script defer="" src="/static/config.js"></script>
+  <% for(var i=0; i < importsMap.length ; i++) { %>
+    <link rel="stylesheet" href="<%= importsMap[i] %>" />
+    <% } %>
+</head>
+
+<body id="body" class="background-rp">
+  <div id="root"></div>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+</body>
+
+</html>

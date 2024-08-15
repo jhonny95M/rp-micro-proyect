@@ -1,0 +1,100 @@
+# Ignorar archivos y carpetas para proyectos .NET
+
+# Archivos y carpetas generados por Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vscode/
+
+# Archivos binarios y de compilación
+bin/
+obj/
+packages/
+*.dll
+*.exe
+*.pdb
+*.app/
+*.dmg
+*.iso
+
+# Ignorar archivos de configuración de dependencias
+*.nupkg
+*.snupkg
+*.csproj.user
+
+# Ignorar carpetas y archivos específicos de NuGet
+.nuget/
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+
+# Ignorar configuraciones específicas de herramientas de pruebas
+TestResults/
+*.trx
+
+# Ignorar carpetas de proyectos de Unity (si corresponde)
+Library/
+Temp/
+Logs/
+MemoryCaptures/
+
+# Ignorar archivos de configuración de herramientas de construcción
+*.lock.json
+*.csproj.user
+
+# Ignorar carpetas específicas de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Ignorar archivos de configuración de JetBrains
+.idea/
+
+# Ignorar archivos y carpetas para proyectos React 18
+
+# Node modules
+node_modules/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compilación
+build/
+dist/
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de configuración del sistema
+.DS_Store
+*.swp
+
+# Configuración de IDEs y editores de texto
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Carpeta de pruebas temporales
+coverage/
+
+# Ignorar archivos generados por el framework de pruebas Jest
+jest-coverage/
+
+# Ignorar archivos y carpetas específicas de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Otros
+*.log
+*.lock
