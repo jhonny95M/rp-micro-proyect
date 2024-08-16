@@ -1,3 +1,4 @@
+import { useRoute } from '../Context/RouteContext';
 import { Actions, Subjects, Rule } from './types';
 
 class Ability {
@@ -7,14 +8,13 @@ class Ability {
     this.rules = rules;
   }
 
-  can(action: Actions, subject: Subjects, conditions?: Record<string, any>): boolean {
-    console.log("action "+action);
+  can(action: Actions, subject: Subjects, route?: string): boolean {
+    const currentRoute =`${route || useRoute()}` ;
+    console.log("currentRoute", currentRoute);
     const ruleExists= this.rules.some(rule => {
       if (rule.action !== action && rule.action !== 'manage') return false;
       if (rule.subject !== subject && rule.subject !== 'all') return false;
-      if (rule.conditions && conditions) {
-        return Object.keys(rule.conditions).every(key => rule.conditions![key] === conditions[key]);
-      }
+      if(currentRoute && rule.route !== currentRoute) return false;
       return true;
     });
     return ruleExists;

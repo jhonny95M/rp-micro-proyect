@@ -8,6 +8,7 @@ import { App, ConfigProvider } from "antd";
 import { UserMain } from "./pages/user/main/Index";
 
 import "./index.css";
+import { RouteProvider } from "./Context/RouteContext";
 
 const queryClient = new QueryClient();
 
@@ -41,11 +42,15 @@ export default function Root(): React.ReactNode {
         <App>
           <div ref={modalContainerRef}>
             <QueryClientProvider client={queryClient}>
+              <RouteProvider>
               <Routes>
                 <Route index element={<Home />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/users" element={<UserMain />} />
+                <Route path="/japi/inmobiliario" element={<Home />} />
+                <Route path="/private" element={<h1>Private</h1>} />
               </Routes>
+              </RouteProvider>
             </QueryClientProvider>
           </div>
         </App>

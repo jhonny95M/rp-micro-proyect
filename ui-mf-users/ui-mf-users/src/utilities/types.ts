@@ -5,5 +5,6 @@ export type Subjects = 'user' | 'article' | 'all';
 export interface Rule {
   action: Actions;
   subject: Subjects;
-  conditions?: Record<string, any>;
+  route: string;
+  // conditions?: Record<string, any>;
 }

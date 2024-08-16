@@ -68,7 +68,7 @@
                     "menuNivel": "1",
                     "label": "Inmobiliario - JAPI",
                     "icon": "",
-                    "route": "/japi/inmobiliario",
+                    "route": "/maintenance/japi/inmobiliario",
                     "flatModal": "0",
                     "status": "A",
                     "child": [],

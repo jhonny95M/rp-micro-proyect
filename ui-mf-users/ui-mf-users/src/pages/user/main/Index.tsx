@@ -83,7 +83,6 @@ export const UserMain = (): React.ReactElement => {
   const [confirmDelete, setConfirmDelete] = useState<IConfirmOperationProps>({ visible: false });
   const [confirmEnable, setConfirmEnable] = useState<IConfirmOperationProps>({ visible: false });
   const [formConnector, setFormConnector] = useState<IFormProps>({ visible: false });
-  const [canCreateUser, setCanCreateUser] = useState(false);
   const [ability, setAbility] = useState<Ability | null>(null);
 
   // useEffect(() => {
@@ -99,7 +98,6 @@ export const UserMain = (): React.ReactElement => {
   useEffect(() => {
     const data = securityData as unknown as SecurityData;
     const userProfile: Profile = data.data[0];
-    console.log("data", data);
     const userAbility = defineAbilitiesFor(userProfile);
     console.log("ability", userAbility);
     setAbility(userAbility);

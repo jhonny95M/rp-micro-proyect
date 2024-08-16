@@ -27,7 +27,7 @@
                             "menuNivel": "2",
                             "label": "Usuarios",
                             "icon": "",
-                            "route": "maintenance/users",
+                            "route": "/maintenance/users",
                             "flatModal": "0",
                             "status": "A",
                             "child": [],
