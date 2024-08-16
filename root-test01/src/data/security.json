@@ -36,7 +36,10 @@
                                     "actionName": "edit-user",
                                     "menuId": "41811"
                                 },
-                                
+                                {
+                                    "actionName": "delete-user",
+                                    "menuId": "41811"
+                                },
                                 {
                                     "actionName": "create-user",
                                     "menuId": "41811"
@@ -46,15 +49,15 @@
                     ],
                     "action": [
                         {
-                            "actionName": "edit-userParent",
+                            "actionName": "edit-user",
                             "menuId": "40811"
                         },
                         {
-                            "actionName": "delete-userParent",
+                            "actionName": "delete-user",
                             "menuId": "40811"
                         },
                         {
-                            "actionName": "create-userParent",
+                            "actionName": "create-user",
                             "menuId": "40811"
                         }
                     ]

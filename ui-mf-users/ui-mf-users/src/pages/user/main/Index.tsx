@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/promise-function-async */
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Button, Tooltip } from "antd";
 // import { useQuery } from '@tanstack/react-query';
 import { useQuery } from "web-utilities";
@@ -30,6 +30,13 @@ import { columns, fieldsFilter } from "./constants";
 import { Index as FormUser } from "./Form";
 
 import "../styles.css";
+import securityData from "../../../data/security.json";
+import Ability from "../../../utilities/ability";
+import { AbilityProvider } from "../../../Context/AbilityContext";
+import { SecurityData } from "ui-mf-users/src/types/security-data";
+import { Profile } from "ui-mf-users/src/types/profile";
+import { use } from "cytoscape";
+import { defineAbilitiesFor } from "../../../utilities/abilityUtils";
 
 export interface IPaginationFlowRequest extends IPaginationRequest {
   type: string;
@@ -49,10 +56,56 @@ function transformPagination<T>(
     total: paging?.totalResults,
   };
 }
+// const extractActions = (menu:any):any[] => {
+//   let actions: any[]= [];
+//   if(menu.action){
+//     actions=actions.concat(menu.action);
+//   }
+//   if(menu.child){
+//     menu.child.forEach((child:any) => {
+//       actions=actions.concat(extractActions(child));
+//     });
+//   }
+// return actions;
+// }
+// const defineAbilitiesFor=(data:any)=>{
+//   const allActions = data.menu.reduce((acc:any, menu:any) => {
+//     return acc.concat(extractActions(menu));
+//   },[]);
+//   const rules = allActions.map((action:any) => ({
+//     action: action.actionName?.split('-')[0],
+//     subject: action.actionName?.split('-')[1],
+//   }));
+//   console.log("rules", rules);
+//   return new Ability(rules);
+// }
 export const UserMain = (): React.ReactElement => {
   const [confirmDelete, setConfirmDelete] = useState<IConfirmOperationProps>({ visible: false });
   const [confirmEnable, setConfirmEnable] = useState<IConfirmOperationProps>({ visible: false });
   const [formConnector, setFormConnector] = useState<IFormProps>({ visible: false });
+  const [canCreateUser, setCanCreateUser] = useState(false);
+  const [ability, setAbility] = useState<Ability | null>(null);
+
+  // useEffect(() => {
+  //   const data = securityData.data[0];
+  //   console.log("data", data);
+  //   const allActions = data.menu.reduce((acc:any, menu:any) => {
+  //     return acc.concat(menu.action);
+  //   }, []);
+  //   const isBtnCreate=allActions.some((action:any) => action.actionName === "create-user3");
+  //   console.log("isBtnCreate", isBtnCreate);
+  //   setCanCreateUser(isBtnCreate);
+  // }, []);
+  useEffect(() => {
+    const data = securityData as unknown as SecurityData;
+    const userProfile: Profile = data.data[0];
+    console.log("data", data);
+    const userAbility = defineAbilitiesFor(userProfile);
+    console.log("ability", userAbility);
+    setAbility(userAbility);
+  },[]);
+
+  
 
   const [filters, setFilters] = useState<IPaginationFlowRequest>(FILTER as IPaginationFlowRequest);
 
@@ -82,7 +135,8 @@ export const UserMain = (): React.ReactElement => {
       action: (row: any) => {
         onEdit(row);
       },
-      visible: (row: any) => row.id,
+      visible: (row: any) => row.id && ability?.can("edit", "user"),
+      
     },
     {
       title: "Eliminar",
@@ -90,7 +144,8 @@ export const UserMain = (): React.ReactElement => {
       action: (row: any) => {
         onDelete(row);
       },
-      visible: (row: any) => row.id,
+      
+      visible: (row: any) => row.id && ability?.can("delete", "user"),
     }
   ];
 
@@ -148,7 +203,12 @@ export const UserMain = (): React.ReactElement => {
     setFormConnector({ visible: false });
   };
 
+ 
+if(!ability){
+  return <div>Loading...</div>
+}
   return (
+    <AbilityProvider ability={ability}>
     <Container>
       <Header title="Users" icon={<DeploymentUnitOutlined />} />
       <Filter
@@ -164,6 +224,7 @@ export const UserMain = (): React.ReactElement => {
                 setFormConnector({ visible: true, id: undefined });
               }}
               icon={<PlusOutlined></PlusOutlined>}
+              disabled={!ability?.can("create", "user")}
             />
           </Tooltip>,
         ]}
@@ -202,5 +263,6 @@ export const UserMain = (): React.ReactElement => {
         />
       )}
     </Container>
+    </AbilityProvider>
   );
 };

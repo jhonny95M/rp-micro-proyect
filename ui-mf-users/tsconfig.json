@@ -16,6 +16,7 @@
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "moduleResolution": "Node10",
+    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "noImplicitReturns": true,

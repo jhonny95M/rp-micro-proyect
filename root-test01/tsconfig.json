@@ -16,6 +16,7 @@
     "jsx": "react",
     "skipLibCheck": true,
     "moduleResolution": "Node10",
+    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "noImplicitReturns": true,
@@ -38,6 +39,7 @@
   "include": [
     "./src/**/*.ts",
     "./src/**/*.tsx",
+    "./src/**/*.json",
     "declarations.ts"
   ],
   "exclude": [
