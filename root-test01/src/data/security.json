@@ -45,6 +45,31 @@
                                     "menuId": "41811"
                                 }
                             ]
+                        },
+                        {
+                            "menuId": "41812",
+                            "menuParentId": "40811",
+                            "menuNivel": "2",
+                            "label": "Roles",
+                            "icon": "",
+                            "route": "maintenance/roles",
+                            "flatModal": "0",
+                            "status": "A",
+                            "child": [],
+                            "action": [
+                                {
+                                    "actionName": "edit-user",
+                                    "menuId": "41812"
+                                },
+                                {
+                                    "actionName": "delete-user",
+                                    "menuId": "41812"
+                                },
+                                {
+                                    "actionName": "create-user",
+                                    "menuId": "41812"
+                                }
+                            ]
                         }
                     ],
                     "action": [

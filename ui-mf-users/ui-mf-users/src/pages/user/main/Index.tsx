@@ -33,9 +33,8 @@ import "../styles.css";
 import securityData from "../../../data/security.json";
 import Ability from "../../../utilities/ability";
 import { AbilityProvider } from "../../../Context/AbilityContext";
-import { SecurityData } from "ui-mf-users/src/types/security-data";
+import { SecurityConfig } from "ui-mf-users/src/types/securityConfig";
 import { Profile } from "ui-mf-users/src/types/profile";
-import { use } from "cytoscape";
 import { defineAbilitiesFor } from "../../../utilities/abilityUtils";
 
 export interface IPaginationFlowRequest extends IPaginationRequest {
@@ -84,6 +83,7 @@ export const UserMain = (): React.ReactElement => {
   const [confirmEnable, setConfirmEnable] = useState<IConfirmOperationProps>({ visible: false });
   const [formConnector, setFormConnector] = useState<IFormProps>({ visible: false });
   const [ability, setAbility] = useState<Ability | null>(null);
+  const [filters, setFilters] = useState<IPaginationFlowRequest>(FILTER as IPaginationFlowRequest);
 
   // useEffect(() => {
   //   const data = securityData.data[0];
@@ -96,7 +96,7 @@ export const UserMain = (): React.ReactElement => {
   //   setCanCreateUser(isBtnCreate);
   // }, []);
   useEffect(() => {
-    const data = securityData as unknown as SecurityData;
+    const data = securityData as unknown as SecurityConfig;
     const userProfile: Profile = data.data[0];
     const userAbility = defineAbilitiesFor(userProfile);
     console.log("ability", userAbility);
@@ -105,7 +105,6 @@ export const UserMain = (): React.ReactElement => {
 
   
 
-  const [filters, setFilters] = useState<IPaginationFlowRequest>(FILTER as IPaginationFlowRequest);
 
   const filteredFilters = Object.fromEntries(
     Object.entries(filters).filter(([_, value]) => value !== null)
@@ -222,7 +221,7 @@ if(!ability){
                 setFormConnector({ visible: true, id: undefined });
               }}
               icon={<PlusOutlined></PlusOutlined>}
-              disabled={!ability?.can("create", "user")}
+              disabled={!ability?.can("create", "user", "/users")}
             />
           </Tooltip>,
         ]}

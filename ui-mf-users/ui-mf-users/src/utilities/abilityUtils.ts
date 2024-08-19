@@ -1,9 +1,8 @@
-import { map } from "lodash";
-import { Action } from "../types/Action";
+import { Action } from "../types/action";
 import { Menu } from "../types/menu";
 import { Profile } from "../types/profile";
 import Ability from "./ability";
-import { Rule, Actions, Subjects } from "./types";
+import { Actions, Subjects } from "./types";
 
 interface RouteAction{
     route:string;

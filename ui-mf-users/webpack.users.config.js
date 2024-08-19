@@ -24,14 +24,14 @@ module.exports = (webpackConfigEnv, argv) => {
     dotenv.config({ path: path.join(__dirname, pathGlobal + "/" + `env/.env.${rpEnv}`) });
   }else{
     dotenv.config({ path: path.join(__dirname, pathGlobal + "/" + `env/.env`) });
-  }
+  }  
 
   return WebpackConfig(
     fileEntryTs,
     fileEntryJs,
     port,
     moduleName,
-    moduleFileName,
+    moduleFileName,    
     {
       "./Root": pathGlobal + "/src/index.tsx"
     },

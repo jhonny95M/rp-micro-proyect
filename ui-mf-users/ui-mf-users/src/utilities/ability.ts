@@ -9,7 +9,7 @@ class Ability {
   }
 
   can(action: Actions, subject: Subjects, route?: string): boolean {
-    const currentRoute =`${route || useRoute()}` ;
+    const currentRoute =route ?? useRoute() ;
     console.log("currentRoute", currentRoute);
     const ruleExists= this.rules.some(rule => {
       if (rule.action !== action && rule.action !== 'manage') return false;

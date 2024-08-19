@@ -74,7 +74,7 @@ module.exports = (webpackConfigEnv, argv) => {
     devServer: {
       static: path.join(__dirname, "build/index.js"),
       port: 8035,
-      historyApiFallback: true,
+      historyApiFallback: true
     },
     plugins: [
       new CopyWebpackPlugin({

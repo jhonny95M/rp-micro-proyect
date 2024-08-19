@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 
 const RouteContext = createContext<string | null>(null);
 

@@ -9,6 +9,9 @@ import { UserMain } from "./pages/user/main/Index";
 
 import "./index.css";
 import { RouteProvider } from "./Context/RouteContext";
+import { AuthProvider } from "./Context/AuthProvider";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import { PermissionProvider } from "./Context/PermissionContext";
 
 const queryClient = new QueryClient();
 
@@ -41,17 +44,23 @@ export default function Root(): React.ReactNode {
       >
         <App>
           <div ref={modalContainerRef}>
+              {/* <PermissionProvider> */}
             <QueryClientProvider client={queryClient}>
-              <RouteProvider>
-              <Routes>
-                <Route index element={<Home />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/users" element={<UserMain />} />
-                <Route path="/japi/inmobiliario" element={<Home />} />
-                <Route path="/private" element={<h1>Private</h1>} />
-              </Routes>
-              </RouteProvider>
+                <RouteProvider>
+                  <Routes>
+                    <Route index element={<Home />} />
+                    <Route path="/" element={<Home />} />
+                      <Route path="/users" element={<UserMain />} />
+                    {/* <Route element={<ProtectedRoute requiredPermissions={['edit-user','create-user']}  />}>
+                    </Route> */}
+                    <Route path="/japi/inmobiliario" element={<Home />} />
+                    {/* <Route element={<ProtectedRoute requiredPermissions={['edit-user','create-user']} />}> */}
+                      <Route path="/private" element={<h1>Private</h1>}  />
+                    {/* </Route> */}
+                  </Routes>
+                </RouteProvider>
             </QueryClientProvider>
+              {/* </PermissionProvider> */}
           </div>
         </App>
       </ConfigProvider>
