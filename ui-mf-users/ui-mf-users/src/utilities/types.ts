@@ -6,5 +6,6 @@ export interface Rule {
   action: Actions;
   subject: Subjects;
   route: string;
+  
   // conditions?: Record<string, any>;
 }

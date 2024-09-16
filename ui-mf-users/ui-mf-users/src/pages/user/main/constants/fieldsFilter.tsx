@@ -19,13 +19,10 @@ export const fieldsFilter = [
         placeholder={localizedUI.PlaceHolderSelect}
         suffixIcon={<CaretDownOutlined />}
       >
-        <SelectANTD.Option key={null} value={null}>
-          Todos
-        </SelectANTD.Option>
-        <SelectANTD.Option key={1} value={true}>
+        <SelectANTD.Option key={1} value={1}>
           Habilitado
         </SelectANTD.Option>
-        <SelectANTD.Option key={0} value={false}>
+        <SelectANTD.Option key={0} value={0}>
           Deshabilitado
         </SelectANTD.Option>
       </Select>
