@@ -16,7 +16,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ requiredPermissions }) 
     const { permissions } = usePermission();
     const location = useLocation();
     if(!permissions || !hasPermission(permissions, requiredPermissions)){
-        return <Navigate to="/users" state={{ from: location.pathname }} />;
+        return <Navigate to="/home" state={{ from: location.pathname }} />;
     }
     console.log('permissions', permissions);
     return <Outlet />;

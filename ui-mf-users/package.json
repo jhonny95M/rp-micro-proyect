@@ -50,6 +50,7 @@
     "rxjs": "^7.8.1",
     "sass": "^1.69.7",
     "tailwindcss": "^3.4.1",
+    "ui-mf-users": "file:",
     "url-loader": "^4.1.1",
     "uuid": "^9.0.1",
     "web-mf-configuration": "^1.0.4",

@@ -221,7 +221,7 @@ if(!ability){
                 setFormConnector({ visible: true, id: undefined });
               }}
               icon={<PlusOutlined></PlusOutlined>}
-              disabled={!ability?.can("create", "user", "/users")}
+              disabled={!ability?.can("search", "uidocument", "/consulta-de-documentos")}
             />
           </Tooltip>,
         ]}

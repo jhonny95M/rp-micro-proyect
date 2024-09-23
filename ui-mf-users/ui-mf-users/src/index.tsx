@@ -51,8 +51,8 @@ export default function Root(): React.ReactNode {
                     <Route index element={<Home />} />
                     <Route path="/" element={<Home />} />
                       <Route path="/users" element={<UserMain />} />
-                    {/* <Route element={<ProtectedRoute requiredPermissions={['edit-user','create-user']}  />}>
-                    </Route> */}
+                    <Route element={<ProtectedRoute requiredPermissions={['edit-user','create-user']}  />}>
+                    </Route>
                     <Route path="/japi/inmobiliario" element={<Home />} />
                     {/* <Route element={<ProtectedRoute requiredPermissions={['edit-user','create-user']} />}> */}
                       <Route path="/private" element={<h1>Private</h1>}  />
